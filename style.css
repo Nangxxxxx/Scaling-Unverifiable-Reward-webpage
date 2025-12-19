@@ -1,3 +1,289 @@
+/* =================================================
+   Global
+   ================================================= */
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Source Serif 4", Georgia, serif;
+  background: #ffffff;
+  color: #1f2933;
+  font-size: 20px;          /* ⭐ 宣传页级 */
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
 }
+
+/* =================================================
+   Layout
+   ================================================= */
+
+.container {
+  max-width: 1280px;        /* ⭐ 更满 */
+  margin: 56px auto;
+  padding: 0 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container > * {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* =================================================
+   Typography
+   ================================================= */
+
+h1, h2, h3 {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  letter-spacing: -0.015em;
+}
+
+h1 {
+  font-size: 3.2em;         /* ⭐ Hero title */
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 1.9em;
+  font-weight: 600;
+  margin-top: 3em;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin-top: 2em;
+}
+
+p {
+  font-size: 1.05em;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.7em;
+}
+
+/* =================================================
+   Authors
+   ================================================= */
+
+.authors {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 1.1em;
+  color: #374151;
+  margin-top: 10px;
+  margin-bottom: 28px;
+}
+
+.authors span {
+  white-space: nowrap;
+}
+
+/* =================================================
+   Subtitle / Intro (Abstract-style)
+   ================================================= */
+
+.subtitle {
+  color: #4b5563;
+}
+
+.subtitle.intro {
+  text-align: left;         /* ⭐ Abstract 左对齐 */
+  font-size: 1.15em;
+  line-height: 1.85;
+  max-width: 1120px;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =================================================
+   Links & Buttons
+   ================================================= */
+
+.links {
+  text-align: center;
+}
+
+.links a {
+  display: inline-block;
+  margin: 14px 10px 0 0;
+  padding: 10px 20px;       /* ⭐ 更像按钮 */
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #111827;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+.links a:hover {
+  background: #f9fafb;
+}
+
+/* =================================================
+   Blocks & Cards
+   ================================================= */
+
+.block {
+  background: #fafafa;
+  border-left: 4px solid #6366f1;
+  padding: 20px 26px;
+  margin-top: 28px;
+  font-size: 1.05em;
+}
+
+.paper {
+  margin-top: 26px;
+  padding: 22px 26px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 1.05em;
+}
+
+.paper-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+.paper-status {
+  color: #6b7280;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+/* =================================================
+   Lists
+   ================================================= */
+
+ul {
+  margin-top: 12px;
+  padding-left: 1.4em;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* =================================================
+   Figures
+   ================================================= */
+
+figure {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+figure img {
+  display: block;
+  margin: 0 auto;
+  max-width: 1120px;        /* ⭐ 主视觉 */
+  width: 100%;
+}
+
+figcaption {
+  font-size: 1em;
+  color: #6b7280;
+  margin-top: 10px;
+  text-align: center;
+  max-width: 1000px;
+}
+
+/* =================================================
+   Notes
+   ================================================= */
+
+.note {
+  color: #6b7280;
+  font-size: 0.95em;
+  text-align: center;
+}
+
+/* =================================================
+   Responsive
+   ================================================= */
+
+@media (max-width: 900px) {
+  body {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 2.6em;
+  }
+
+  .container {
+    margin: 36px auto;
+    padding: 0 20px;
+  }
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.project-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #0077cc;
+}
+
+.project-card .paper-status {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.project-card .paper-abstract {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.participation-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 24px;
+  background-color: #0077cc;
+  color: white;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.participation-button:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+}
+

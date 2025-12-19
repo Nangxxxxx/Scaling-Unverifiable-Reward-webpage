@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selective Test-Time Scaling under Unverifiable Rewards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ====== Global ====== */
+    body {
+      font-family: "Source Serif 4", Georgia, serif;
+      background: #ffffff;
+      color: #1f2933;
+      font-size: 20px;          /* ⭐ 宣传页级 */
+      line-height: 1.8;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* =================================================
+      Layout
+      ================================================= */
+
+    .container {
+      max-width: 1280px;        /* ⭐ 更满 */
+      margin: 56px auto;
+      padding: 0 32px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container > * {
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    /* =================================================
+      Typography
+      ================================================= */
+
+    h1, h2, h3 {
+      font-family: "Inter", sans-serif;
+      text-align: center;
+      letter-spacing: -0.015em;
+    }
+
+    h1 {
+      font-size: 3.2em;         /* ⭐ Hero title */
+      font-weight: 700;
+      margin-bottom: 0.3em;
+    }
+
+    h2 {
+      font-size: 1.9em;
+      font-weight: 600;
+      margin-top: 3em;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 1.4em;
+      font-weight: 600;
+      margin-top: 2em;
+    }
+
+    p {
+      font-size: 1.05em;
+      max-width: 1120px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0.7em;
+    }
+
+    /* =================================================
+      Authors
+      ================================================= */
+
+    .authors {
+      text-align: center;
+      font-family: "Inter", sans-serif;
+      font-size: 1.1em;
+      color: #374151;
+      margin-top: 10px;
+      margin-bottom: 28px;
+    }
+
+    .authors span {
+      white-space: nowrap;
+    }
+
+    /* =================================================
+      Subtitle / Intro (Abstract-style)
+      ================================================= */
+
+    .subtitle {
+      color: #4b5563;
+    }
+
+    .subtitle.intro {
+      text-align: left;         /* ⭐ Abstract 左对齐 */
+      font-size: 1.15em;
+      line-height: 1.85;
+      max-width: 1120px;
+      margin-top: 24px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* =================================================
+      Links & Buttons
+      ================================================= */
+
+    .links {
+      text-align: center;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 14px 10px 0 0;
+      padding: 10px 20px;       /* ⭐ 更像按钮 */
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #111827;
+      font-family: "Inter", sans-serif;
+      font-size: 0.95em;
+      font-weight: 500;
+    }
+
+    .links a:hover {
+      background: #f9fafb;
+    }
+
+    /* =================================================
+      Blocks & Cards
+      ================================================= */
+
+    .block {
+      background: #fafafa;
+      border-left: 4px solid #6366f1;
+      padding: 20px 26px;
+      margin-top: 28px;
+      font-size: 1.05em;
+    }
+
+    .paper {
+      margin-top: 26px;
+      padding: 22px 26px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 1.05em;
+    }
+
+    .paper-title {
+      font-family: "Inter", sans-serif;
+      font-weight: 600;
+      font-size: 1.05em;
+    }
+
+    .paper-status {
+      color: #6b7280;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+
+    /* =================================================
+      Lists
+      ================================================= */
+
+    ul {
+      margin-top: 12px;
+      padding-left: 1.4em;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+
+    /* ====== Navigation ====== */
+    .nav a {
+      display: inline-block;
+      margin-right: 12px;
+      margin-top: 10px;
+      padding: 6px 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #222;
+      font-size: 0.95em;
+      transition: background 0.2s;
+    }
+    .nav a:hover {
+      background: #f5f5f5;
+    }
+
+    /* ====== Figures ====== */
+    figure {
+      margin: 28px 0;
+    }
+    figure img {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      border: 1px solid #eee;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+    }
+    figcaption {
+      font-size: 0.95em;
+      color: #555;
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* ====== Blocks ====== */
+    .block {
+      background: #fafafa;
+      border-left: 4px solid #4c72ff;
+      padding: 16px 20px;
+      margin-top: 20px;
+      border-radius: 6px;
+    }
+    ul {
+      margin-top: 12px;
+      padding-left: 1.4em;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+    /* ====== Examples flex ====== */
+    .example-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .example-flex img {
+      width: 100%;
+      max-width: 48%;
+      border: 1px solid #eee;
+      border-radius: 8px;
+    }
+
+    /* ====== Responsive ====== */
+    @media(max-width: 700px) {
+      .example-flex img {
+        max-width: 100%;
+      }
+      .nav a {
+        margin-bottom: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="nav">
+      <a href="index.html">← Back to Project Overview</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#insights">Key Insights</a>
+    </div>
+
+    <h1>Selective Test-Time Scaling under Unverifiable Rewards</h1>
+    <p class="subtitle">
+      This paper investigates whether test-time scaling remains effective when reward signals
+      cannot be deterministically verified. We introduce <strong>Selective Test-Time Scaling</strong>,
+      a framework that dynamically allocates additional computation only to instances where it is
+      likely to yield meaningful improvements, under a fixed compute budget.
+    </p>
+
+    <h2>Abstract</h2>
+    <p>
+      Test-time scaling has emerged as a powerful tool for improving the reasoning capabilities of
+      large language models. However, most existing approaches assume access to verifiable reward
+      signals, an assumption that rarely holds in real-world settings. In this work, we study
+      test-time scaling under <em>unverifiable rewards</em>, where feedback may be noisy, heuristic,
+      or subjective. Focusing on data science tasks, we propose <em>Selective Test-Time Scaling</em>,
+      which uses stage-specific evaluators to decide when additional computation is warranted.
+      Under a fixed compute budget, our method consistently outperforms uniform scaling strategies,
+      demonstrating that informed selection—rather than indiscriminate scaling—is key to effective
+      reasoning under imperfect feedback.
+    </p>
+
+    <h2 id="method">Method</h2>
+    <p>
+      The core challenge in scaling under unverifiable rewards lies in deciding <em>when</em> to spend
+      additional computation. Uniform scaling allocates the same budget to all instances, often
+      wasting computation on cases where further exploration is unlikely to help. Selective
+      Test-Time Scaling addresses this challenge by introducing explicit selection mechanisms
+      within a multi-stage inference pipeline.
+    </p>
+
+    <figure>
+      <img src="assets/prune.png" alt="Selective TTS Pipeline" />
+      <figcaption>
+        Overview of <strong>Selective Test-Time Scaling</strong> under a fixed compute budget.
+        Stage-specific evaluators perform <span style="color:#c0392b;">pruning</span> while controlling
+        the <span style="color:#2980b9;">branching</span> factor at each stage. Higher pruning ratios (ρ)
+        promote exploration and diversity while respecting the compute budget.
+      </figcaption>
+    </figure>
+
+    <p>
+      At each stage, candidate solutions are evaluated using heuristic or learned signals that do
+      not require ground-truth verification. A subset is pruned, and additional computation is
+      allocated to the remaining candidates.
+    </p>
+
+    <div class="block">
+      <strong>Key Design Choices.</strong>
+      <ul>
+        <li>Stage-specific evaluators tailored to different phases of reasoning.</li>
+        <li>Explicit control over pruning ratios to regulate exploration dynamics.</li>
+        <li>Fixed compute budget to ensure fair comparison with uniform scaling baselines.</li>
+      </ul>
+    </div>
+
+    <h2 id="results">Results</h2>
+    <p>
+      We evaluate selective test-time scaling on data science tasks where rewards are noisy or heuristic.
+      All methods are compared under the same test-time compute budget.
+    </p>
+
+    <figure>
+      <img src="assets/key_result.png" alt="Main Results" style="width:100%; max-width:1100px; border:1px solid #fcfcfc;" />
+      <figcaption>
+        Main experimental results. Selective test-time scaling consistently outperforms uniform scaling
+        and non-scaled baselines across tasks.
+      </figcaption>
+    </figure>
+
+    <h2 id="examples">Examples</h2>
+    <p>
+      Experiments on the “VIS paper publication statistics” dataset. Two example reports under the same pruning ratios:
+    </p>
+
+    <div class="example-flex">
+      <img src="assets/example_worst.png" alt="Worst example" />
+      <img src="assets/example_best.png" alt="Best example" />
+    </div>
+    <figcaption>
+      Reports for pruning ratio = 0.8 at the lowest (70) and highest (90.5) scores.
+    </figcaption>
+
+    <h2 id="insights">Key Insights</h2>
+    <ul>
+      <li>
+        <strong>Selection is more important than scale.</strong> Under unverifiable rewards,
+        allocating computation selectively yields greater benefits than uniformly increasing
+        inference depth.
+      </li>
+      <li>
+        <strong>Uniform scaling exhibits diminishing returns.</strong> Naive scaling wastes
+        computation on low-impact instances, limiting overall gains.
+      </li>
+      <li>
+        <strong>Effective scaling does not require verification.</strong> Carefully designed
+        selection mechanisms enable robust improvements even when rewards are noisy or heuristic.
+      </li>
+    </ul>
+
+  </div>
+</body>
+</html>

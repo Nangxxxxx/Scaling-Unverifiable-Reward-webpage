@@ -1,12 +1,132 @@
-<!DOCTYPE html>
-<html>
 <head>
-  <meta charset="UTF-8">
-  <title>My Project</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scaling Unverifiable Reward</title>
+
+  <!-- Google Fonts: Inter + Source Serif 4 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Hello GitHub Pages</h1>
-  <p>If you can see this, it works.</p>
+  <div class="container">
+
+    <h1>Scaling Unverifiable Reward</h1>
+
+    <div class="authors">
+      <span>Shuyu Gan</span>,
+      <span>Pan Hao</span>,
+      <span>James Mooney</span>,
+      <span>Renxiang Wang</span>,
+      <span>Zhecheng Sheng</span>,
+      <span>Dongyeop Kang</span> &
+      <span>Qianwen Wang</span>
+    </div>
+
+    <p class="subtitle intro">
+      <strong>Scaling Unverifiable Reward</strong> is a research project that investigates how
+      test-time computation can be effectively scaled when reward signals are noisy, subjective,
+      or fundamentally unverifiable. Rather than focusing on a single task or method, the project
+      aims to establish general principles for reasoning and decision-making under imperfect
+      feedback.
+    </p>
+
+    <div class="links">
+      <a href="#overview">Overview</a>
+      <a href="#projects">Projects</a>
+      <a href="#">Papers</a>
+      <a href="#">Code</a>
+    </div>
+
+
+
+    <h2>Research Overview</h2>
+    <p>
+      Many real-world AI systems rely on reward signals that cannot be directly verified against
+      ground truth—for example, human preferences, qualitative judgments, or downstream utility
+      that emerges only after deployment. The overarching goal of this project is to understand
+      <em>how far test-time scaling can go under such unverifiable rewards</em>, and what algorithmic
+      principles enable reliable improvements despite imperfect feedback.
+    </p>
+
+    <div class="block">
+      <strong>Core Questions.</strong>
+      <ul>
+        <li>Can test-time scaling work in unverifiable domains?</li>
+        <li>whether judge-guided scaling can align with human expert?</li>
+        <li>how much performance can be further scaled within the same compute budget?</li>
+      </ul>
+    </div>
+
+
+    <figure id="overview" style="margin-top:32px;">
+      <img src="assets/pipeline.png" alt="Selective Test-Time Scaling Overview" style="width:100%; max-width:1250px; border:1px solid #fcfcfc;" />
+      <figcaption class="note" style="margin-top:8px;">
+        An example in the data science domain: we aim to generate visualizations from the initial statistical data and uncover potential insights. 
+      </figcaption>
+    </figure>
+
+  <h2 id="projects">Projects</h2>
+    <p class="note">
+      The project is organized as a sequence of related papers, each addressing a complementary
+      aspect of scaling under unverifiable reward signals.
+    </p>
+
+    <div class="project-grid">
+      <a href="insight.html" class="project-card">
+        <h3>Selective Test-Time Scaling</h3>
+        <p class="paper-status">Current paper · Led by Shuyu</p>
+        <p class="paper-abstract">
+            Selective TTS is a method that improves multi-step reasoning by assessing and eliminating low-quality options early in the process, allocating computation more efficiently.  
+            When tested on chart-and-report generation, it produced higher-quality outputs with less variation, demonstrating how complex AI workflows can be enhanced even when final results are hard to verify.        </p>
+      </a>
+
+      <a href="project-step2.html" class="project-card">
+        <h3>Generalization across Domains</h3>
+        <p class="paper-status">Ongoing · Led by Renxiang</p>
+        <p class="paper-abstract">
+          This project investigates whether the principles identified in selective test-time
+          scaling generalize beyond the data science domain. We examine which aspects are universal
+          and which depend on domain-specific structure or reward characteristics.
+        </p>
+      </a>
+
+      <a href="project-step3.html" class="project-card">
+        <h3>Human Preference Insight Rewards</h3>
+        <p class="paper-status">Ongoing · Led by Pan</p>
+        <p class="paper-abstract">
+This project designs and evaluates an interactive insight discovery workflow. It handles ambiguous and subjective insights, allows dynamic data scoping for validation, and uses retrieval-augmented generation to ground analysis in domain knowledge. The resulting workflow makes data science more robust and interpretable, advancing AI systems from task automation to insightful analysis.        </p>
+      </a>
+
+      <a href="project-step4.html" class="project-card">
+        <h3>Human Preference Insight Rewards</h3>
+        <p class="paper-status">Ongoing · Led by Zhecheng</p>
+        <p class="paper-abstract">
+Current TTS pipelines struggle in unverifiable tasks due to reliance on manual or AI judges. A solution is to use high-compute TTS outputs as quality references to automatically generate reward data. This data can then train a multi-agent system to match human preference, removing the need for manual oversight.        </p>
+      </a>
+    </div>
+
+
+    <h2>Long-Term Vision</h2>
+    <p>
+      By viewing these papers as parts of a coherent research program, the project aims to move
+      beyond isolated empirical gains and toward a unified understanding of computation allocation
+      under uncertainty. Ultimately, we hope to provide practical guidance for deploying scalable
+      reasoning systems in settings where verification is expensive, delayed, or impossible.
+    </p>
+
+    <h2 id="participation">Call for Participation</h2>
+    <p class="note">
+      We plan to conduct more in-depth, long-term research in the field of unverifiable rewards, 
+      such as building benchmarks and designing new methodologies. If you are interested in tasks involving unverifiable rewards, 
+      please join us! Feel free to reach out: <strong>dongyeop@umn.edu</strong>.
+    </p>
+
+
+
+  </div>
 </body>
 </html>
