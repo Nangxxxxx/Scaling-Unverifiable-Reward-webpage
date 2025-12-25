@@ -3,7 +3,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Scaling Unverifiable Reward</title>
 
-  <!-- Google Fonts: Inter + Source Serif 4 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;500;600&display=swap" rel="stylesheet">
@@ -11,20 +10,81 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
+<script>
+function toggleBib(id) {
+  var x = document.getElementById(id);
+  
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    document.querySelectorAll('.bibtex-block').forEach(el => el.style.display = 'none');
+    
+    x.style.display = "block";
+  }
+}
+</script>
+
 <body>
   <div class="container">
 
     <h1>Scaling Unverifiable Reward</h1>
 
-    <div class="authors">
-      <span>Shuyu Gan</span>,
-      <span>Pan Hao</span>,
-      <span>James Mooney</span>,
-      <span>Renxiang Wang</span>,
-      <span>Zhecheng Sheng</span>,
-      <span>Dongyeop Kang</span> &
-      <span>Qianwen Wang</span>
+    <div class="authors-grid">
+    <div class="author-item">
+      <a href="https://shuyugan.github.io/" target="_blank">
+        <img src="assets/authors/shuyu.jpg" alt="Shuyu Gan" class="author-avatar">
+        <span class="author-name">Shuyu Gan</span>
+      </a>
     </div>
+    <div class="author-item">
+      <a href="https://ppphhhleo.github.io/" target="_blank">
+        <img src="assets/authors/pan.jpg" alt="Pan Hao" class="author-avatar">
+        <span class="author-name">Pan Hao</span>
+      </a>
+    </div>
+    <div class="author-item">
+      <a href="https://www.linkedin.com/in/james-mooney-45b420105/" target="_blank">
+        <img src="assets/authors/james.jpg" alt="James Mooney" class="author-avatar">
+        <span class="author-name">James Mooney</span>
+      </a>
+    </div>
+    <div class="author-item">
+      <a href="https://github.com/Nangxxxxx" target="_blank">
+        <img src="assets/authors/renxiang.jpg" alt="Renxiang Wang" class="author-avatar">
+        <span class="author-name">Renxiang Wang</span>
+      </a>
+    </div>
+    <div class="author-item">
+      <a href="https://epsilonzc.github.io/" target="_blank">
+        <img src="assets/authors/zhecheng.jpg" alt="Zhecheng Sheng" class="author-avatar">
+        <span class="author-name">Zhecheng Sheng</span>
+      </a>
+    </div>
+    <div class="author-item">
+      <a href="https://dykang.github.io/" target="_blank">
+        <img src="assets/authors/DK.jpg" alt="Dongyeop Kang" class="author-avatar">
+        <span class="author-name">Dongyeop Kang</span>
+      </a>
+    </div>
+    <div class="author-item">
+      <a href="https://qianwen.info/" target="_blank">
+        <img src="assets/authors/qianwen.jpg" alt="Qianwen Wang" class="author-avatar">
+        <span class="author-name">Qianwen Wang</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="institution-footer">
+    <div class="logo-container">
+      <a href="https://twin-cities.umn.edu/" target="_blank" title="University of Minnesota">
+        <img src="assets\university-of-minnesota-logo-png_seeklogo-43380922.png" alt="University of Minnesota" class="umn-logo-large">
+      </a>
+
+      <a href="https://minnesotanlp.github.io/" target="_blank" title="第二个机构名称">
+        <img src="assets\UMN_NLP_logo_final_circle_transparent.png" alt="Second Institution" class="umn-logo-large">
+      </a>
+    </div>
+  </div>
 
     <p class="subtitle intro">
       <strong>Scaling Unverifiable Reward</strong> is a research project that investigates how
@@ -69,43 +129,108 @@
       </figcaption>
     </figure>
 
+
+  <section class="scaling-proof">
+    <h2>Scaling is Feasible</h2>
+    <p>
+      A common skepticism is whether test-time scaling still holds when reward signals are subjective or noisy. 
+      Our empirical results demonstrate that <strong>performance can be effectively scaled</strong> even under 
+      unverifiable rewards by using <em>Selective Test-Time Scaling</em>.
+    </p>
+
+    <div class="evidence-box">
+      <div class="evidence-text">
+        <h3>Key Finding: Performance improves as we increase the number of candidate samples, showing a clear "scaling law" for unverifiable tasks.</h3>
+      </div>
+      
+      <figure class="evidence-figure">
+        <img src="assets/sorted_curve_VIS.png" alt="Scaling Law under Unverifiable Rewards" class="scaling-chart">
+        <figcaption>
+          Figure 1: Performance scaling as test-time compute increases.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="alignment-proof">
+    <div class="evidence-box reversed"> <figure class="evidence-figure">
+        <img src="assets/alignment.png" alt="Human-AI Alignment Results" class="scaling-chart">
+        <figcaption>
+          Alignment metrics (mean ± std across 4 human annotators) between each judger and human annotations on two datasets. Higher values indicate stronger agreement (1 denotes perfect correlation).
+        </figcaption>
+      </figure>
+
+      <div class="evidence-text">
+        <h2>Aligned with Human Experts</h2>
+        <p>
+          The true challenge of unverifiable rewards is ensuring that "better" reward scores actually translate to "better" quality for humans. 
+          Our study confirms that <strong>Selective TTS judgment strongly correlates with human experts</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <h2 id="examples">Examples</h2>
+    <p>
+      Experiments on the “VIS publication Dataset” dataset. Two example reports under the same pruning ratios:
+    </p>
+
+    <div class="example-flex">
+      <img src="assets/example_worst.png" alt="Worst example" />
+      <img src="assets/example_best.png" alt="Best example" />
+    </div>
+    <figcaption>
+      Reports for pruning ratio = 0.8 at the lowest (70) and highest (90.5) scores.
+    </figcaption>
+
   <h2 id="projects">Projects</h2>
     <p class="note">
       The project is organized as a sequence of related papers, each addressing a complementary
       aspect of scaling under unverifiable reward signals.
     </p>
 
+
     <div class="project-grid">
-      <a href="insight.html" class="project-card">
-        <h3>Selective Test-Time Scaling</h3>
+      <a href="insight.html" class="project-card active">
+        <div class="status-badge"></div> <h3>Selective Test-Time Scaling</h3>
         <p class="paper-status">Current paper · Led by Shuyu</p>
         <p class="paper-abstract">
-            Selective TTS is a method that improves multi-step reasoning by assessing and eliminating low-quality options early in the process, allocating computation more efficiently.  
+          Selective TTS is a method that improves multi-step reasoning by assessing and eliminating low-quality options early in the process, allocating computation more efficiently.  
             When tested on chart-and-report generation, it produced higher-quality outputs with less variation, demonstrating how complex AI workflows can be enhanced even when final results are hard to verify.        </p>
+        </p>
       </a>
 
-      <a href="project-step2.html" class="project-card">
+      <a href="#" class="project-card pending">
+        <div class="status-badge">To be written</div>
         <h3>Generalization across Domains</h3>
         <p class="paper-status">Ongoing · Led by Renxiang</p>
         <p class="paper-abstract">
           This project investigates whether the principles identified in selective test-time
           scaling generalize beyond the data science domain. We examine which aspects are universal
-          and which depend on domain-specific structure or reward characteristics.
-        </p>
+          and which depend on domain-specific structure or reward characteristics.        </p>
       </a>
 
-      <a href="project-step3.html" class="project-card">
+      <a href="#" class="project-card pending">
+        <div class="status-badge">To be written</div>
         <h3>Human Preference Insight Rewards</h3>
         <p class="paper-status">Ongoing · Led by Pan</p>
         <p class="paper-abstract">
-This project designs and evaluates an interactive insight discovery workflow. It handles ambiguous and subjective insights, allows dynamic data scoping for validation, and uses retrieval-augmented generation to ground analysis in domain knowledge. The resulting workflow makes data science more robust and interpretable, advancing AI systems from task automation to insightful analysis.        </p>
+          This project designs and evaluates an interactive insight discovery workflow. It handles ambiguous and subjective insights, allows dynamic data scoping for validation, and uses retrieval-augmented generation to ground analysis in domain knowledge. The resulting workflow makes data science more robust and interpretable, advancing AI systems from task automation to insightful analysis.        </p>
       </a>
 
-      <a href="project-step4.html" class="project-card">
-        <h3>Human Preference Insight Rewards</h3>
+      <a href="#" class="project-card pending">
+        <div class="status-badge">To be written</div>
+        <h3>AI Judge Collaboration</h3>
         <p class="paper-status">Ongoing · Led by Zhecheng</p>
         <p class="paper-abstract">
-Current TTS pipelines struggle in unverifiable tasks due to reliance on manual or AI judges. A solution is to use high-compute TTS outputs as quality references to automatically generate reward data. This data can then train a multi-agent system to match human preference, removing the need for manual oversight.        </p>
+          Current TTS pipelines struggle in unverifiable tasks due to reliance on manual or AI judges. A solution is to use high-compute TTS outputs as quality references to automatically generate reward data. This data can then train a multi-agent system to match human preference, removing the need for manual oversight.        </p>
+      </a>
+
+      <a href="#" class="project-card pending">
+        <div class="status-badge">To be written</div>
+        <h3>General-purpose TTS Pipeline</h3>
+        <p class="paper-status">Ongoing · Led by James</p>
+        <p class="paper-abstract">
       </a>
     </div>
 
@@ -117,6 +242,54 @@ Current TTS pipelines struggle in unverifiable tasks due to reliance on manual o
       under uncertainty. Ultimately, we hope to provide practical guidance for deploying scalable
       reasoning systems in settings where verification is expensive, delayed, or impossible.
     </p>
+
+    <h2 id="publications">Publications</h2>
+      <div class="publication-list">
+        
+        <div class="pub-item">
+          <div class="pub-type">Preprint / ARR</div>
+          <div class="pub-content">
+            <p class="pub-title"><strong>Scaling Unverifiable Reward via Selective Test-Time Scaling</strong></p>
+            <p class="pub-authors">Shuyu Gan, Pan Hao, James Mooney, Renxiang Wang, Mingyi Hong, Qianwen Wang, Dongyeop Kang</p>
+            <p class="pub-venue"><em>ACL Rolling Review (ARR) 2025 October.</em></p>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank">[arXiv]</a>
+              <button class="bib-btn" onclick="toggleBib('bib-arr')">[BibTeX]</button>
+            </div>
+            <pre id="bib-arr" class="bibtex-block">
+      @article{gan2024scaling,
+        title={Scaling Unverifiable Reward via Selective Test-Time Scaling},
+        author={Shuyu Gan, Pan Hao, James Mooney, Renxiang Wang, Mingyi Hong, Qianwen Wang, Dongyeop Kang},
+        journal={ACL Rolling Review},
+        year={2025}
+      }</pre>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <div class="pub-type">Workshop Paper</div>
+          <div class="pub-content">
+            <p class="pub-title"><strong>Selective Test-Time Scaling for Data Science Insight Generation</strong></p>
+            <p class="pub-authors">Shuyu Gan, Renxiang Wang, James Mooney, Dongyeop Kang.</p>
+            <p class="pub-venue"><em>In Proceedings of the IEEE VIS Workshop on Visual Analytics and Generative AI (VIS x GenAI).</em></p>
+            <div class="pub-links">
+              <a href="#">[Paper]</a>
+              <button class="bib-btn" onclick="toggleBib('bib-workshop')">[BibTeX]</button>
+            </div>
+            <pre id="bib-workshop" class="bibtex-block">
+      @inproceedings{gan2025a2pvis,
+  title        = {A2P-Vis: An Analyzer-to-Presenter Agentic Pipeline for Visual Insights Generation and Reporting},
+  author       = {Shuyu Gan and Renxiang Wang and James Mooney and Dongyeop Kang},
+  booktitle    = {Proceedings of the IEEE VIS Workshop on Visual Analytics and Generative AI (VIS x GenAI)},
+  year         = {2025},
+  organization = {IEEE},
+  address      = {Vienna, Austria},
+  url          = {https://visxgenai.github.io/subs-2025/7597/7597-doc.pdf}
+}</pre>
+          </div>
+        </div>
+
+      </div>
 
     <h2 id="participation">Call for Participation</h2>
     <p class="note">
